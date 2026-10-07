@@ -1,0 +1,142 @@
+.more-topics-panel {
+  background: rgba(14, 16, 34, 0.94);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(139, 92, 246, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+html:not(.dark) .more-topics-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 15px rgba(139, 92, 246, 0.08);
+}
+
+.more-topics-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+}
+
+.cat-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+html:not(.dark) .cat-divider {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Category Accent Colors mapping via CSS Variables */
+.cat-purple { --cat-r: 139; --cat-g: 92; --cat-b: 246; --cat-color: #8b5cf6; }
+.cat-blue { --cat-r: 59; --cat-g: 130; --cat-b: 246; --cat-color: #3b82f6; }
+.cat-pink { --cat-r: 236; --cat-g: 72; --cat-b: 153; --cat-color: #ec4899; }
+.cat-cyan { --cat-r: 34; --cat-g: 211; --cat-b: 238; --cat-color: #22d3ee; }
+.cat-green { --cat-r: 16; --cat-g: 185; --cat-b: 129; --cat-color: #10b981; }
+
+.cat-header-label {
+  color: #c7c9ff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+html:not(.dark) .cat-header-label {
+  color: #4c4f8a;
+}
+
+.explore-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(var(--cat-r), var(--cat-g), var(--cat-b), 0.25);
+  color: #dfe1ff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+html:not(.dark) .explore-chip {
+  color: #1e1b4b;
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(var(--cat-r), var(--cat-g), var(--cat-b), 0.35);
+}
+
+.explore-chip .accent-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cat-color);
+  flex-shrink: 0;
+}
+
+.explore-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color);
+  box-shadow: 0 4px 16px rgba(var(--cat-r), var(--cat-g), var(--cat-b), 0.25);
+  background: rgba(var(--cat-r), var(--cat-g), var(--cat-b), 0.1);
+}
+
+.explore-chip.selected {
+  background: linear-gradient(135deg, var(--cat-color), rgba(var(--cat-r), var(--cat-g), var(--cat-b), 0.6));
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(var(--cat-r), var(--cat-g), var(--cat-b), 0.35);
+}
+
+.explore-chip:active {
+  transform: scale(0.96);
+}
+
+.explore-chip:focus-visible {
+  outline: 2px solid var(--cat-color);
+  outline-offset: 2px;
+}
+
+/* Clear text button */
+.panel-clear-btn {
+  color: #a5a9d6;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+html:not(.dark) .panel-clear-btn {
+  color: #5b5f8f;
+}
+
+.panel-clear-btn:hover {
+  color: #fff;
+}
+
+html:not(.dark) .panel-clear-btn:hover {
+  color: #1e1b4b;
+}
+
+/* Category header select all */
+.cat-select-btn {
+  color: var(--cat-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.cat-select-btn:hover {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .explore-chip {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}

@@ -1,0 +1,108 @@
+.dq-wrapper {
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  z-index: 50;
+  animation: dq-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dq-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dq-icon {
+  opacity: 0.6;
+  margin-right: 6px;
+  font-size: 0.9rem;
+}
+
+.dq-text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #a5a9d6;
+  line-height: 1.5;
+  display: inline;
+}
+
+html:not(.dark) .dq-text {
+  color: #5b5f8f;
+}
+
+.dq-cursor {
+  animation: blink 1s step-end infinite;
+  color: #a78bfa;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.dq-author {
+  font-size: 0.9rem;
+  color: #a5a9d6;
+  opacity: 0.7;
+  display: inline;
+  margin-left: 4px;
+}
+
+html:not(.dark) .dq-author {
+  color: #5b5f8f;
+}
+
+/* Copy Button */
+.dq-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #a5a9d6;
+  background: transparent;
+  border: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+html:not(.dark) .dq-copy-btn {
+  color: #5b5f8f;
+}
+
+.dq-wrapper:hover .dq-copy-btn {
+  opacity: 0.7;
+}
+
+.dq-copy-btn:hover {
+  opacity: 1 !important;
+  color: #a78bfa;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+  .dq-wrapper {
+    width: 92%;
+  }
+  
+  .dq-text {
+    font-size: 0.85rem;
+  }
+  
+  .dq-author {
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+    margin-left: 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dq-wrapper,
+  .dq-cursor {
+    animation: none !important;
+  }
+}

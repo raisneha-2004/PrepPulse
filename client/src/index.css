@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #030712;
+    min-height: 100%;
+  }
+
+  body, #root {
+    background: transparent;
+    min-height: 100%;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.8);
+}
+
+/* Ambient Background Glow Floating */
+@keyframes ambient-glow-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate3d(60px, -40px, 0) scale(1.15);
+    opacity: 0.25;
+  }
+}
+
+@keyframes ambient-glow-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate3d(-50px, 50px, 0) scale(1.2);
+    opacity: 0.22;
+  }
+}
+
+/* Shifting Text Gradient Animation */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradient-flow 6s ease-in-out infinite;
+}
+
+/* Card Shine Sweep Keyframes */
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(250%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.group:hover .animate-shine {
+  animation: shine-sweep 0.75s ease-in-out;
+}
+
+.animate-glow-1 {
+  animation: ambient-glow-1 25s ease-in-out infinite alternate;
+}
+
+.animate-glow-2 {
+  animation: ambient-glow-2 30s ease-in-out infinite alternate;
+}
+
+/* Conic Gradient Border Animation */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-conic {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.animate-conic-border {
+  animation: rotate-conic 4s linear infinite;
+}
+
+/* Document Scanner Animation */
+@keyframes doc-scan {
+  0% {
+    top: 4%;
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    top: 92%;
+    opacity: 0.2;
+  }
+}
+
+.animate-doc-scan {
+  animation: doc-scan 2s ease-in-out infinite alternate;
+}
+
+/* Floating animation */
+@keyframes soft-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-soft-float {
+  animation: soft-float 3s ease-in-out infinite;
+}
+
+/* Premium Background Animations */
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(5vw, 5vh) scale(1.1) rotate(5deg); }
+  66% { transform: translate(-5vw, 10vh) scale(0.9) rotate(-5deg); }
+}
+.animate-aurora-1 { animation: aurora-1 25s ease-in-out infinite; }
+
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(-5vw, -8vh) scale(0.9) rotate(-5deg); }
+  66% { transform: translate(8vw, 2vh) scale(1.1) rotate(5deg); }
+}
+.animate-aurora-2 { animation: aurora-2 28s ease-in-out infinite; }
+
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(8vw, -5vh) scale(1.1) rotate(5deg); }
+  66% { transform: translate(-3vw, -10vh) scale(0.9) rotate(-5deg); }
+}
+.animate-aurora-3 { animation: aurora-3 32s ease-in-out infinite; }
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+.animate-card-float { animation: card-float 10s ease-in-out infinite; }
+
+@keyframes shooting-star {
+  0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0; }
+  100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); opacity: 0; }
+}
+.animate-shooting-star { animation: shooting-star 1.5s ease-out forwards; }
+
+@keyframes shine-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-shine-sweep {
+  background-size: 200% auto;
+  animation: shine-sweep 4s linear infinite;
+}
+
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.1); opacity: 0.35; }
+}
+.animate-soft-pulse { animation: soft-pulse 4s ease-in-out infinite; }
+
+/* Periodic button shimmer every 4s */
+@keyframes button-shimmer-sweep {
+  0%, 70% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-periodic-shimmer {
+  animation: button-shimmer-sweep 4s ease-in-out infinite;
+}
+
+/* Respect Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow-1,
+  .animate-glow-2,
+  .animate-gradient-flow,
+  .animate-shine,
+  .animate-conic-border,
+  .animate-doc-scan,
+  .animate-soft-float,
+  .animate-aurora-1,
+  .animate-aurora-2,
+  .animate-aurora-3,
+  .animate-card-float,
+  .animate-shooting-star,
+  .animate-shine-sweep,
+  .animate-soft-pulse,
+  .animate-periodic-shimmer {
+    animation: none !important;
+  }
+}
+
+/* Print Stylesheet for Report PDF download */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  nav, .no-print, button:not(.print-keep), .toast-container, .bg-animated {
+    display: none !important;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+  }
+
+  .shadow-soft, .shadow-soft-lg, .shadow-xl, .shadow-md {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
